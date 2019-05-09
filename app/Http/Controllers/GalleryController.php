@@ -20,8 +20,8 @@ class GalleryController extends Controller
         ->with('five_post' , Post::orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first())
         ->with('sexes_post' , Post::orderBy('created_at', 'desc')->skip(5)->take(1)->get()->first())
         ->with('settings', Setting::first())
-        ->with('gallery', Category::find(4))
-        ->with('tutoirals',Category::find(5));
+        ->with('gallery', Category::find(1))
+        ->with('tutoirals',Category::find(3));
         ;
     }
 

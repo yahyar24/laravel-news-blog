@@ -16,6 +16,18 @@
                     <input type="text" name="title" class="form-control" value="{{$post->title}}">
                 </div>
                 <div class="form-group">
+                    <label for="day">Day</label>
+                    <input type="text" name="day" class="form-control" value="{{$post->day}}">
+                </div>
+                <div class="form-group">
+                    <label for="city">city</label>
+                    <input type="text" name="city" class="form-control" value="{{$post->city}}">
+                </div>
+                <div class="form-group">
+                    <label for="price">price</label>
+                    <input type="text" name="price" class="form-control" value="{{$post->price}}">
+                </div>
+                <div class="form-group">
                     <label for="featured">Featuered image</label>
                     <input type="file" name="featured" class="form-control">
                 </div>

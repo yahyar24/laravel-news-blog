@@ -73,9 +73,7 @@ class ProfilesController extends Controller
     $this->validate($request,[
         'name' => 'required',
         'email'=> 'required|email',
-        'facebook' =>'required|url',
-        'youtube' => 'required|url',
-        'about' => 'required'
+       
 
     ]);
 
@@ -94,18 +92,22 @@ class ProfilesController extends Controller
 
         $user->name = $request->name;
         $user->email= $request->email;
-        $user->profile->facebook= $request->facebook;
-        $user->profile->youtube =$request->youtube;
-        $user->profile->about =$request->about;
-
-        $user->save();
-        $user->profile->save();
-
+        
         if ($request->has('password')){
 
             $user->password = bcrypt($request->password);
+            $user->profile->save();
+
 
         }
+
+        $user->save();
+        $user->profile->save();
+        
+
+
+
+        
         Session::flash('success','Account profile updated');
         return redirect()->back();
     }

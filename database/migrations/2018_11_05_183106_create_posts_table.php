@@ -19,6 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->text('body');
             $table->integer('category_id');
+            $table->text('day');
+            $table->text('city');
+            $table->text('price');
             $table->string('featured');
             $table->softDeletes();
             $table->timestamps();

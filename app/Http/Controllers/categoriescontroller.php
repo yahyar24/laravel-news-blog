@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
  use Session;
 
-use App\category;
+use App\Category;
 
 use Illuminate\Http\Request;
 

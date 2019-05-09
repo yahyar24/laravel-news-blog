@@ -66,19 +66,15 @@
 
 <div class="content-wrapper">
     
-    @include('includes.header')
 
    
-@yield('content')
 
 <!-- Subscribe Form -->
 
-@include('includes.form')
 
 
 <!-- Footer -->
 
-@include('includes.footer')
 
 <!-- End Footer -->
 
@@ -119,7 +115,6 @@
 
 <!-- Overlay Search -->
 
-@include('includes.search')
 <!-- End Overlay Search -->
 
 <script src="{{asset('flte/js/jquery.js')}}"></script>

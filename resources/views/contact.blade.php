@@ -1,84 +1,81 @@
+@extends('layouts.cssandjs')
+@extends('layouts.frontendd')
+    
+		@section('content')
 
+    <body>
+           <!-- starting  naaaaaaav naaaaaaaaaaaar -->
 
-<!DOCTYPE html>
-<html lang="en">
+   
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title></title>
+      
+      <!-- end naaaaaaaaav baaaaaaaaaaaaaar -->
 
-  <!-- Bootstrap -->
-  <link href="{{asset('csss/bootstrap.min.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('csss/font-awesome.min.css')}}">
-  <link rel="stylesheet" href="csss/animate.css')}}">
-  <link href="{{asset('csss/animate.min.css')}}" rel="stylesheet">
-  <link href="{{asset('csss/style.css')}}" rel="stylesheet" />
-  <!-- =======================================================
-    Theme Name: Day
-    Theme URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
-    Author: BootstrapMade
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
-</head>
+<section class="my-footer">
 
-@include('includes.header')
-
-<section class="contact-page">
-    <div class="container">
-      <div class="text-center">
-        <h2>Drop Your Message</h2>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-      <div class="row contact-wrap">
-        <div class="col-md-6 col-md-offset-3">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
-            <div class="form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
-                data-msg="Please enter at least 4 chars" />
-              <div class="validation"></div>
+        <footer >
+                <div class="header pt-5" id="fooot">
+                    <h2 class="text-center pt-5">تواصل معنا</h2>
+                    <hr>
+                  </div>
+          
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contactinfo my-5">
+                                <h2>معلومات التواصل</h2>
+                                <p>في حال واجهتك اي مشكله او اردت الاستفسار عن اي شيء فلا تتردد ف التواصل معنا</p>
+                            <div class="info">
+                                <i class="fas fa-map-marker-alt px-2 my-4"> </i>
+                                 <span>{{$settings->address}}</span>
+                               
+                                <br/>
+                                <i class="fas fa-envelope px-2 my-4"></i>
+                                 <span><a href="#">{{$settings->contact_email}}</a></span>
+                                <br/>
+                                <i class="fas fa-phone px-2 my-4"></i>
+                                 <span>{{$settings->contact_number}}</span>
+                            </div>
+                               
+                             </div>
+                        </div>
+                        <div class="col-md-6">
+                             <div class="ourdata  m-auto">
+                <div class="heading m-4">
+                    <h3>هيا نعمل سويا</h3>
+                </div>
+                <div class="dataform m-4">
+                    <form action="{{route('message.store')}}" method="post" role="form" class="contactForm">
+                    {{csrf_field()}}
+                <input name="name" type="text" placeholder="الاسم بالكامل"class="form-control my-2"/>
+                 
+                <input name="email" type="email" placeholder="الايميل الخاص بك"class="form-control my-2"/>
+                   
+                    <input type="text" name="subject" placeholder="الموضوع"class="form-control my-2"/>
+                   
+                    <textarea name="body" class="form-control" placeholder="رسالتك " rows="5"></textarea>
+                    <button class="btn mt-3 float-right">ارسال</button>
+                    <div class="clearfix"></div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email"
-                data-msg="Please enter a valid email" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4"
-                data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"
-                placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-            <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit
-                Message</button></div>
-          </form>
-        </div>
-      </div>
-      <!--/.row-->
-    </div>
-    <!--/.container-->
-  </section>
+                        </div>
+                
+                    </div>
+                </div>
+           
+                     
+            </footer>
 
-  @include('includes.footer')
+</section>
+
+   <!-- <foooooooooooooooooooooooter -->
 
 
 
-   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-   <script src="{{asset('jss/jquery.js')}}"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="{{asset('jss/bootstrap.min.js')}}"></script>
-  <script src="{{asset('jss/wow.min.js')}}"></script>
-  <script>
-    wow = new WOW({}).init();
-  </script>
-</body>
-
+  
+     
+    </body>
 </html>
+
+@endsection

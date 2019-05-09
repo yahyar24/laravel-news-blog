@@ -20,7 +20,7 @@ class FrontEendController extends Controller
         ->with('fourth_post' , Post::orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first())
         ->with('five_post' , Post::orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first())
         ->with('sexes_post' , Post::orderBy('created_at', 'desc')->skip(5)->take(1)->get()->first())
-        ->with('career', Category::find(2))
+        ->with('career', Category::find(1))
         ->with('tutoirals',Category::find(3))
         ->with('settings', Setting::first());
     }

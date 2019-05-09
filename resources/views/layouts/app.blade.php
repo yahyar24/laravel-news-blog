@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>لوحة التحكم</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('csss/style.css')}}" rel="stylesheet">
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/tostr.min.css')}}">
     @yield('styles')
 </head>
@@ -31,7 +32,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        لوحة التحكم
                     </a>
                 </div>
 
@@ -52,14 +53,22 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                                
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                           <a href={{route('user.profile')}}>الملف الشخصي</a>
+                           <a href={{route('user.create')}}>انشاء مستخدم</a>
+
+
+
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            تسجيل الخروج
                                         </a>
+                                                                        
+
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -79,50 +88,86 @@
                     <div class="col-lg-4">
                         <di class="list-group">
                             <li class="list-group-item">
-                                <a href={{route('home')}}>Home</a>
+                            <img src="https://img.icons8.com/nolan/64/000000/speed.png">
+
+                                <a href={{route('home')}}>لوحة التحكم</a>
                             </li>
                             <li class="list-group-item">
-                                <a href={{route('categories')}}>Categories</a>
+                            <img src="https://img.icons8.com/dusk/48/000000/medium-priority.png">
+
+                                <a href={{route('categories')}}>التصنيفات </a>
                             </li>
                             <li class="list-group-item">
-                                <a href={{route('posts')}}>ALl post</a>
+                            <img src="https://img.icons8.com/color/48/000000/mailbox-opened-flag-down.png">
+
+                                <a href={{route('posts')}}>كل المنشورات</a>
                             </li>
                             <li class="list-group-item">
-                                <a href={{route('tags')}}>Tags</a>
+                            <img src="https://img.icons8.com/dusk/48/000000/medium-priority.png">
+
+                                <a href={{route('tags')}}>التاج </a>
                             </li>
                             @if(Auth::user()->admin)
                                 <li class="list-group-item">
-                                    <a href={{route('users')}}>Users</a>
+                                <img src="https://img.icons8.com/color/48/000000/user-group-man-man.png">
+
+                                    <a href={{route('users')}}>المستخدمين</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href={{route('user.create')}}>New Users</a>
+                                <img src="https://img.icons8.com/color/48/000000/administrator-male.png">
+
+                                    <a href={{route('user.create')}}>انشاء مستخدم</a>
                                 </li>
 
                                 <li class="list-group-item">
-                                    <a href={{route('user.profile')}}>My profile</a>
+                                <img src="https://img.icons8.com/color/48/000000/user.png">
+
+                                    <a href={{route('user.profile')}}>الملف الشخصي</a>
                                 </li>
                                 
 
 
                                 @endif
                             <li class="list-group-item">
-                                <a href={{route('tag.create')}}>create Tag</a>
-                            </li>
+                            <img src="https://img.icons8.com/nolan/64/000000/add.png">
+
+                                <a href={{route('tag.create')}}>انشاء تاج seo</a>
+                            </li-->
                             <li class="list-group-item">
-                                <a href={{route('posts.trashed')}}>ALl trashed posts</a>
+                            <img src="https://img.icons8.com/color/48/000000/delete-table.png">
+
+                                <a href={{route('posts.trashed')}}>المنشورات المحذوفة</a>
                             </li>
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href={{route('category.create')}}>Create a new category</a>
+                                <img src="https://img.icons8.com/nolan/64/000000/add.png">
+
+
+                                    <a href={{route('category.create')}}>انشاء تصنيف</a>
                                 </li>
 
                             <li class="list-group-item">
+                            <img src="https://img.icons8.com/nolan/64/000000/add.png">
 
-                                <a href={{route('post.create')}}>Create new post</a>
+
+                                <a href={{route('post.create')}}>انشاء منشور</a>
                             </li>
                                 @if(Auth::user()->admin)
                                 <li class="list-group-item">
-                                    <a href={{route('settings')}}>Settings</a>
+                                <img src="https://img.icons8.com/color/48/000000/automatic.png">
+
+
+                                    <a href={{route('settings')}}>الاعدادات</a>
+                                </li>
+                                <li class="list-group-item">
+                                <img src="https://img.icons8.com/color/48/000000/new-post.png">
+
+                                    <a href={{route('message')}}>الرسائل</a>
+                                </li>
+                                <li class="list-group-item">
+                                <img src="https://img.icons8.com/color/48/000000/new-post.png">
+
+                                    <a href={{route('book')}}>رسائل الحجز</a>
                                 </li>
                                     @endif
 

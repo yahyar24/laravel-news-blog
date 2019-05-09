@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\support\Facades\DB;
 
 use App\Tag;
 use Auth;
@@ -20,7 +21,8 @@ class PostController extends Controller
      */
     public function index()
     {
-      return view('admin.posts.index')->with('posts', Post::all());
+        return view('admin.posts.index')->with('posts', Post::all());
+
     }
 
     /**
@@ -60,6 +62,9 @@ class PostController extends Controller
             'body' => 'required',
             'category_id' => 'required',
             'tags' => 'required',
+            'day' => 'required',
+            'city' => 'required',
+            'price'  => 'required'
             
         ]);
 
@@ -74,6 +79,9 @@ class PostController extends Controller
             'body'=>$request->body,
             'featured' =>'uploads/posts/' .$featured_new_name,
             'category_id' =>$request->category_id,
+            'day' =>$request->day,
+            'city' =>$request->city,
+            'price' =>$request->price,
             'slug' => str_slug($request->title),
             'user_id' =>Auth::id()
         ]);
@@ -142,6 +150,9 @@ class PostController extends Controller
      }
 
     $post ->title = $request->title;
+    $post ->day = $request->day;
+    $post ->city = $request->city;
+    $post ->price = $request->price;
         $post->body = $request->body;
         $post->category_id =$request->category_id;
 

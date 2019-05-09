@@ -68,6 +68,17 @@ Route::get('/product',[
     'as' => 'product'
 
 ]);
+
+
+
+Route::post('/book/store',[
+    'uses' => 'BookController@store',
+    'as' => 'book.store'
+]);
+Route::post('/message/store',[
+    'uses' => 'MessagesController@store',
+    'as' => 'message.store'
+]);
  
  
  
@@ -77,6 +88,23 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function (){
+    
+Route::get('/message',[
+    'uses' => 'MessagesController@index',
+    'as' => 'message'
+]);
+Route::get('/message/delete/{id}',[
+    'uses' => 'MessagesController@destroy',
+    'as' => 'message.delete'
+]);
+Route::get('/book',[
+    'uses' => 'BookController@index',
+    'as' => 'book'
+]);
+Route::get('/book/delete/{id}',[
+    'uses' => 'BookController@destroy',
+    'as' => 'book.delete'
+]);
 
     Route::get('/dashboard', [
         'uses' => 'HomeController@index',

@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.frontendd')
 
 @section('content')
 
@@ -20,13 +20,14 @@
                 @foreach($posts as $post)
                     
                     
-                       <div class="case-item-wrap">
+                       <div class="case-item-wrap mt-5">
+                       <h1 class="text-center"> <a href="{{route('post.single' , ['slug' => $post->slug])}}">{{$post->title}}</h1></a>
+
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="case-item">
                                     <div class="case-item__thumb">
-                                        <img src="{{$post->featured}}" alt="our case">
+                                        <img style="border-radiues:10px 10px 10px 10px;" src="{{$post->featured}}" alt="our case">
                                     </div>
- <a href="{{route('post.single' , ['slug' => $post->slug])}}"><h6 class="case-item__title">{{$post->title}}</h6>
 
                                     
                                 </div>
