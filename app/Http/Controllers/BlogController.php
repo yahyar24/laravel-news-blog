@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Category;
+use App\category;
 use App\Setting;
 use App\Post;
 
