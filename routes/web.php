@@ -31,7 +31,7 @@ Route::get('/results' , function(){
         return view('results')->with('posts', $posts)
         ->with('title', 'search results:' . request('query'))
         ->with('settings', \App\Setting::first())
-        ->with('categories' ,\App\Category::take(5)->get() )
+        ->with('categories' ,\App\category::take(5)->get() )
         ->with('query', request('query'));   
 });
 
