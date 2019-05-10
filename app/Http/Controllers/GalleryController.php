@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use App\Setting;
-use App\Category;
+use App\category;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -12,7 +12,7 @@ class GalleryController extends Controller
     {
       return view('gallery')
       ->with('title', Setting::first()->site_name)
-      ->with('categories' , Category::take(5)->get())
+      ->with('categories' , category::take(5)->get())
       ->with('first_post' , Post::orderBy('created_at','desc')->first())
         ->with('second_post' , Post::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first())
         ->with('third_post' , Post::orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first())
@@ -20,8 +20,8 @@ class GalleryController extends Controller
         ->with('five_post' , Post::orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first())
         ->with('sexes_post' , Post::orderBy('created_at', 'desc')->skip(5)->take(1)->get()->first())
         ->with('settings', Setting::first())
-        ->with('gallery', Category::find(1))
-        ->with('tutoirals',Category::find(3));
+        ->with('gallery', category::find(1))
+        ->with('tutoirals',category::find(3));
         ;
     }
 

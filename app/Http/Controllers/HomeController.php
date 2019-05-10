@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
-use App\Category;
+use App\category;
 
 
 use Illuminate\Http\Request;
@@ -24,6 +24,6 @@ class HomeController extends Controller
             ->with('posts_count', Post::all()->count())
             ->with('trashed_count', Post::onlyTrashed()->get()->count())
             ->with('users_count' , User::all()->count())
-            ->with('categories_count',Category::all()->count());
+            ->with('categories_count',category::all()->count());
     }
 }
