@@ -5,7 +5,6 @@
     <body>
            <!-- starting  naaaaaaav naaaaaaaaaaaar -->
 
-  @include('includes.header')
 
       
       <!-- end naaaaaaaaav baaaaaaaaaaaaaar -->
@@ -39,7 +38,6 @@
       </section>
       <!-- <foooooooooooooooooooooooter -->
 
-         @include('includes.footer')
 
      
     </body>
